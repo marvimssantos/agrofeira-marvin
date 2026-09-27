@@ -3,45 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroFeira</title>
+    <title>AgroFeira - Produtos da Região</title>
 </head>
 <body>
 
-    <header>
+    <a href="#conteudo" class="pular">Pular para o conteúdo principal</a>
+
+    <header class="cabecalho-site">
         <h1>AgroFeira</h1>
 
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre a AgroFeira</a></li>
-                <li><a href="#produtos">Produtos</a></li>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li>
+                    <a href="index.html" aria-current="page">Início</a>
+                </li>
+                <li>
+                    <a href="safra.html">Safra</a>
+                </li>
+                <li>
+                    <a href="cadastro-produtor.html">Cadastro de produtor</a>
+                </li>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2 id="sobre">Sobre a AgroFeira</h2>
+    <main id="conteudo">
+
+        <section aria-labelledby="feira">
+            <h2 id="feira">Conheça a AgroFeira</h2>
 
             <p>
-                A AgroFeira reúne produtores da região de Paragominas,
-                oferecendo produtos cultivados e produzidos localmente.
-                É um espaço para conhecer os produtos da região e saber
-                onde encontrá-los.
+                A AgroFeira reúne produtos cultivados por produtores da região
+                de Paragominas e aproxima produtores e consumidores.
+                <em>Valorize a produção local!</em>
             </p>
+
+            <figure class="figura-destaque">
+                <picture>
+                    <source
+                        media="(min-width: 800px)"
+                        srcset="feira-1280.jpg">
+
+                    <img
+                        src="feira-330.jpg"
+                        alt="Bancas com produtos em uma feira"
+                        width="330"
+                        height="220">
+                </picture>
+
+                <figcaption>
+                    Feira de produtos da região. Crédito: AgroFeira.
+                </figcaption>
+            </figure>
+
+            <nav aria-label="Links desta página">
+                <p>
+                    Veja nossos
+                    <a href="#produtos">produtos disponíveis</a>
+                    ou consulte
+                    <a href="#localizacao">o local e horário da feira</a>.
+                </p>
+            </nav>
+
+            <form class="busca" role="search">
+                <label for="procurar">Procurar produto</label>
+
+                <input
+                    type="search"
+                    id="procurar"
+                    name="campo">
+
+                <button type="submit">
+                    <img
+                        src="lupa.png"
+                        alt="Procurar">
+                </button>
+            </form>
         </section>
 
-        <section>
-            <h2 id="produtos">Produtos da feira</h2>
+        <section aria-labelledby="produtos">
+            <h2 id="produtos">Produtos da AgroFeira</h2>
 
-            <ul>
-                <li>Banana — vendida por quilograma</li>
-                <li>Farinha de mandioca — vendida por quilograma</li>
-                <li>Mel — vendido por litro</li>
+            <ul class="lista-produtos">
+
+                <li class="cartao-produto">
+                    <strong>Mandioca</strong> — saca de 60 kg
+                </li>
+
+                <li class="cartao-produto">
+                    <strong>Banana-prata</strong> — cacho
+                </li>
+
+                <li class="cartao-produto">
+                    <strong>Açaí</strong> — rasa
+                </li>
+
+                <li class="cartao-produto">
+                    <strong>Pimenta-do-reino</strong> — quilo
+                </li>
+
+                <li class="cartao-produto">
+                    <strong>Cupuaçu</strong> — quilo
+                </li>
+
+                <li class="cartao-produto">
+                    <strong>Alface</strong> — maço
+                </li>
+
             </ul>
+
+            <div class="aviso">
+                <p>
+                    Os preços dos produtos podem mudar toda semana.
+                    <strong>Consulte os valores antes da compra.</strong>
+                </p>
+            </div>
         </section>
+
     </main>
 
-    <footer>
+    <aside id="localizacao" aria-label="Informações da feira">
+        <h2>Onde encontrar a feira</h2>
+
+        <address>
+            AgroFeira — Paragominas, Pará
+        </address>
+
+        <p>
+            Horário: aos sábados, das 7h às 12h.
+        </p>
+    </aside>
+
+    <footer class="rodape-site">
         <p>AgroFeira — Produtos da região de Paragominas.</p>
     </footer>
 
