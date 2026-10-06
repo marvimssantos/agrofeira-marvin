@@ -1,96 +1,36 @@
-```css
-/* =========================================================
-   CASOS DE CASCATA — ATIVIDADE 03
-   ========================================================= */
-
-
 /* Caso 1 */
-
-/*
-Previsão:
-A regra .aviso strong vence a regra strong porque possui
-maior especificidade.
-
-.aviso strong = 0,1,1
-strong = 0,0,1
-
-Portanto, a parte importante do aviso ficará com a
-cor definida por --cor-marca.
-*/
-
+/* Previsão: vence ".aviso strong" e a parte importante do aviso fica na cor da marca.
+   Especificidade: ".aviso strong" = (0,1,1); "strong" = (0,0,1). A primeira é maior,
+   então vence mesmo vindo antes na ordem do arquivo. O estilo.css não tem regra de cor
+   para strong, então nada interfere. */
 .aviso strong {
-    color: var(--cor-marca);
+  color: var(--cor-marca);
 }
-
 strong {
-    color: var(--cor-texto-suave);
+  color: var(--cor-texto-suave);
 }
-
-/*
-Conferido:
-A regra .aviso strong venceu por ter maior especificidade.
-A regra strong aparece riscada no painel de estilos.
-*/
-
 
 /* Caso 2 */
-
-/*
-Previsão:
-A regra .busca label vence a regra label[for] porque
-ambas possuem especificidade equivalente, mas .busca label
-aparece antes de label[for] no arquivo.
-
-.busca label = 0,1,1
-label[for] = 0,1,1
-
-Como as especificidades são iguais, a regra que aparece
-por último deve vencer. Portanto, label[for] deve definir
-a cor final do rótulo.
-*/
-
+/* Previsão: vence "label[for]" e o rótulo "Procurar produto" fica na cor do texto suave.
+   Especificidade: ".busca label" = (0,1,1); "label[for]" = (0,1,1), porque o seletor de
+   atributo conta como classe. Empatou, então decide a ordem: a última, "label[for]", ganha.
+   O estilo.css não tem regra de cor para label. */
 .busca label {
-    color: var(--cor-marca);
+  color: var(--cor-marca);
 }
-
 label[for] {
-    color: var(--cor-texto-suave);
+  color: var(--cor-texto-suave);
 }
-
-/*
-Conferido:
-A regra label[for] venceu porque possui a mesma
-especificidade de .busca label e aparece depois no CSS.
-A declaração de .busca label aparece riscada.
-*/
-
 
 /* Caso 3 */
-
-/*
-Previsão:
-A regra footer p vence a regra .rodape-site porque
-footer p possui maior especificidade.
-
-.rodape-site = 0,1,0
-footer p = 0,0,2
-
-A regra footer p deve definir a cor do parágrafo do rodapé.
-*/
-
+/* Previsão: o parágrafo do rodapé fica na cor do texto (--cor-texto).
+   O ".rodape-site" (0,1,0) colore o footer, e o p só herdaria essa cor. Mas "footer p"
+   (0,0,2) mira o próprio p, e uma regra direta, mesmo com especificidade menor, vence a
+   herança. (No estilo.css, o rodapé está com o texto suave, mas o casos.css vem depois
+   e muda o footer para a cor da marca; o p continua com a sua regra própria.) */
 .rodape-site {
-    color: var(--cor-marca);
+  color: var(--cor-marca);
 }
-
 footer p {
-    color: var(--cor-texto);
+  color: var(--cor-texto);
 }
-
-/*
-Conferido:
-A regra footer p não define diretamente a cor do
-parágrafo quando existe uma regra específica para ele
-no estilo.css. A cor final deve ser verificada no painel
-Estilos, considerando também as regras herdadas.
-*/
-```

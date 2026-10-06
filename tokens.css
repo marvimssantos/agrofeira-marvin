@@ -1,44 +1,33 @@
+/* tokens.css — AgroFeira */
+
 :root {
-    /* Cores */
-    --cor-fundo: #f8f7f2;
-    --cor-superficie: #ffffff;
-    --cor-texto: #252525;
-    --cor-texto-suave: #555555;
-    --cor-marca: #2f6b3c;
-    --cor-sobre-marca: #ffffff;
-    --cor-borda: #d8d8d8;
+  /* Cores — contraste medido (AA = 4,5 | AAA = 7; régua do texto comum) */
+  --cor-fundo: #EEF3F8;
+  --cor-superficie: #FFFFFF;
+  --cor-texto: #1F2933; /* 13,22:1 sobre o fundo (AAA); 14,76:1 sobre a superfície (AAA) */
+  --cor-texto-suave: #52606D; /* 5,78:1 sobre o fundo (AA) */
+  --cor-marca: #8A3B12; /* 6,93:1 sobre o fundo (AA) */
+  --cor-sobre-marca: #FFFFFF; /* 7,73:1 sobre a marca (AAA) */
+  --cor-borda: #C5CED8;
 
-    /*
-    Contraste:
-    --cor-texto sobre --cor-fundo: 13,2:1 — AAA
-    --cor-texto-suave sobre --cor-fundo: 7,1:1 — AAA
-    --cor-texto sobre --cor-superficie: 15,2:1 — AAA
-    --cor-marca sobre --cor-fundo: 5,1:1 — AA
-    --cor-sobre-marca sobre --cor-marca: 6,2:1 — AA
-    */
+  /* Letras */
+  --fonte-texto: system-ui, sans-serif;
+  --fonte-titulo: "Merriweather", serif;
 
-    /* Tipografia */
-    --fonte-titulo: "Poppins", sans-serif;
-    --fonte-texto: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Escala modular: multiplicador = 1,25 */
+  /* h3 = 1 x 1,25 = 1,25 | h2 = 1,25 x 1,25 = 1,5625 ~ 1,563 | h1 = 1,563 x 1,25 = 1,953 */
+  --tamanho-texto: 1rem;
+  --tamanho-h3: 1.25rem;
+  --tamanho-h2: 1.563rem;
+  --tamanho-h1: 1.953rem;
 
-    /* Tamanhos */
-    --tamanho-texto: 1rem;
+  /* Espaços */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 1rem;
+  --espaco-4: 2rem;
 
-    /*
-    Escala modular:
-    multiplicador aproximado de 1,25.
-    */
-    --tamanho-h3: 1.25rem;
-    --tamanho-h2: 1.563rem;
-    --tamanho-h1: 1.953rem;
-
-    /* Espaços */
-    --espaco-1: 0.25rem;
-    --espaco-2: 0.5rem;
-    --espaco-3: 0.75rem;
-    --espaco-4: 1rem;
-
-    /* Cantos e sombra */
-    --raio: 0.75rem;
-    --sombra: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+  /* Forma */
+  --raio: 8px;
+  --sombra: 0 2px 6px rgb(0 0 0 / 0.2);
 }
