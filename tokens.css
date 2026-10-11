@@ -1,6 +1,11 @@
 /* tokens.css — AgroFeira */
 
+@layer base {
+
 :root {
+  /* O navegador pinta campos, barra de rolagem e cores de fábrica de acordo com o tema */
+  color-scheme: light dark;
+
   /* Cores — contraste medido (AA = 4,5 | AAA = 7; régua do texto comum) */
   --cor-fundo: #EEF3F8;
   --cor-superficie: #FFFFFF;
@@ -9,6 +14,10 @@
   --cor-marca: #8A3B12; /* 6,93:1 sobre o fundo (AA) */
   --cor-sobre-marca: #FFFFFF; /* 7,73:1 sobre a marca (AAA) */
   --cor-borda: #C5CED8;
+
+  /* Foco e hover (contornos: régua de 3:1) */
+  --cor-foco: #1D4ED8; /* 6,00:1 sobre o fundo; 6,70:1 sobre a superfície */
+  --cor-marca-forte: #6B2D0E; /* 10,46:1 com a cor sobre a marca (AAA) */
 
   /* Letras */
   --fonte-texto: system-ui, sans-serif;
@@ -30,4 +39,22 @@
   /* Forma */
   --raio: 8px;
   --sombra: 0 2px 6px rgb(0 0 0 / 0.2);
+}
+
+/* Tema escuro: só troca os valores dos tokens de cor, com os mesmos nomes */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo: #16110E;
+    --cor-superficie: #241C17;
+    --cor-texto: #F2EDE9; /* 16,12:1 sobre o fundo (AAA); 14,41:1 sobre a superfície (AAA) */
+    --cor-texto-suave: #C4B8AF; /* 9,66:1 sobre o fundo (AAA); 8,63:1 sobre a superfície (AAA) */
+    --cor-marca: #F0966A; /* 8,28:1 sobre o fundo (AAA); 7,40:1 sobre a superfície (AAA) */
+    --cor-sobre-marca: #1E1007; /* 8,19:1 sobre a marca (AAA) */
+    --cor-borda: #4D4038;
+
+    --cor-foco: #8AB8FF; /* 9,26:1 sobre o fundo; 8,28:1 sobre a superfície */
+    --cor-marca-forte: #F8B896; /* 10,85:1 com a cor sobre a marca (AAA) */
+  }
+}
+
 }

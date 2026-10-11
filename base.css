@@ -1,0 +1,109 @@
+/* base.css — camada base: a página, os elementos, a casca do catálogo e o anel de foco */
+@layer base {
+
+  /* Página inteira */
+  body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    font-size: var(--tamanho-texto);
+  }
+
+  main,
+  aside {
+    padding: var(--espaco-3);
+  }
+
+  /* Títulos */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: var(--tamanho-h1);
+  }
+
+  h2 {
+    font-size: var(--tamanho-h2);
+  }
+
+  h3 {
+    font-size: var(--tamanho-h3);
+  }
+
+  h2,
+  h3 {
+    color: var(--cor-marca);
+    margin-top: var(--espaco-4);
+    margin-bottom: var(--espaco-2);
+  }
+
+  /* Parágrafos: ritmo vertical e medida da linha */
+  p {
+    margin-bottom: var(--espaco-3);
+    max-width: 70ch;
+  }
+
+  /* Citação e glossário */
+  blockquote {
+    color: var(--cor-texto-suave);
+    padding-left: var(--espaco-3);
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  /* Casca do catálogo, mobile-first: uma coluna na base, na ordem do HTML, por áreas nomeadas */
+  .pagina-catalogo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "cabecalho"
+      "menu"
+      "conteudo"
+      "lateral"
+      "rodape";
+    gap: var(--espaco-3);
+  }
+
+  .pagina-catalogo > header {
+    grid-area: cabecalho;
+  }
+
+  .pagina-catalogo > nav {
+    grid-area: menu;
+  }
+
+  .pagina-catalogo > main {
+    grid-area: conteudo;
+  }
+
+  .pagina-catalogo > aside {
+    grid-area: lateral;
+  }
+
+  .pagina-catalogo > footer {
+    grid-area: rodape;
+  }
+
+  /* Três colunas a partir de 46rem: menu 12rem + lateral 16rem + 2 espaços de 1rem + conteúdo mínimo de 14rem (cartão de 12rem + 2rem de preenchimento) = 44rem, com 2rem de folga para a barra de rolagem */
+  @media (min-width: 46rem) {
+    .pagina-catalogo {
+      grid-template-columns: 12rem minmax(0, 1fr) 16rem;
+      grid-template-areas:
+        "cabecalho cabecalho cabecalho"
+        "menu conteudo lateral"
+        "rodape rodape rodape";
+    }
+  }
+
+  /* Anel de foco do teclado, para todos os elementos */
+  :focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+  }
+}
