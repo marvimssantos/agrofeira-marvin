@@ -19,6 +19,10 @@
   --cor-foco: #1D4ED8; /* 6,00:1 sobre o fundo; 6,70:1 sobre a superfície */
   --cor-marca-forte: #6B2D0E; /* 10,46:1 com a cor sobre a marca (AAA) */
 
+  /* Trios para o link do Bootstrap (rgba lê três números separados por vírgula) */
+  --cor-marca-rgb: 138, 59, 18; /* cópia de --cor-marca (#8A3B12) */
+  --cor-marca-forte-rgb: 107, 45, 14; /* cópia de --cor-marca-forte (#6B2D0E) */
+
   /* Letras */
   --fonte-texto: system-ui, sans-serif;
   --fonte-titulo: "Merriweather", serif;
@@ -54,6 +58,9 @@
 
     --cor-foco: #8AB8FF; /* 9,26:1 sobre o fundo; 8,28:1 sobre a superfície */
     --cor-marca-forte: #F8B896; /* 10,85:1 com a cor sobre a marca (AAA) */
+
+    --cor-marca-rgb: 240, 150, 106; /* cópia de --cor-marca (#F0966A) */
+    --cor-marca-forte-rgb: 248, 184, 150; /* cópia de --cor-marca-forte (#F8B896) */
   }
 }
 
