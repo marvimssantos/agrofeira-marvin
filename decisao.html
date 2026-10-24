@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos Vinicius Morais dos Santos — AgroFeira: registro de decisão</title>
+    <link rel="stylesheet" href="camadas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="componentes.css">
+    <link rel="stylesheet" href="utilitarios.css">
+</head>
+<body>
+
+    <a href="#conteudo" class="pular">Pular para o conteúdo principal</a>
+
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
+
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="safra.html">Safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+
+        <h2>Aula 6 — o registro de decisão</h2>
+
+        <p><strong>Aluno:</strong> Marcos Vinicius Morais dos Santos. <strong>Matrícula:</strong> 2022008617.</p>
+
+        <p><strong>Repositório:</strong> https://github.com/marvimssantos/agrofeira-marvin</p>
+
+        <p><strong>Endereços do site:</strong></p>
+        <ul>
+            <li>Site: https://marvimssantos.github.io/agrofeira-marvin/</li>
+            <li>Catálogo em Bootstrap: https://marvimssantos.github.io/agrofeira-marvin/catalogo-bootstrap.html</li>
+            <li>Fechamento do pedido: https://marvimssantos.github.io/agrofeira-marvin/checkout-bootstrap.html</li>
+        </ul>
+
+        <h3>1. As correções de acessibilidade</h3>
+
+        <table class="tabela-safra">
+            <caption>Registro de correções: o que o código da documentação não trazia, ou trazia diferente</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Componente</th>
+                    <th scope="col">Problema</th>
+                    <th scope="col">Como se detectou</th>
+                    <th scope="col">Correção</th>
+                    <th scope="col">Onde está no código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">botão do menu</th>
+                    <td>a documentação dá o nome "Toggle navigation", em inglês, numa página em português</td>
+                    <td>painel Accessibility: o Name do botão; depois da troca, "Menu" (Passo 5)</td>
+                    <td>aria-label="Menu" no lugar do da documentação</td>
+                    <td>no button com navbar-toggler, dentro do nav da barra</td>
+                </tr>
+                <tr>
+                    <th scope="row">botão de fechar do diálogo</th>
+                    <td>a documentação dá o nome "Close", em inglês</td>
+                    <td>painel Accessibility, com o diálogo aberto: o Name passou a "Fechar" (Passo 5)</td>
+                    <td>aria-label="Fechar" no lugar do da documentação</td>
+                    <td>no button com btn-close, dentro do modal-header</td>
+                </tr>
+                <tr>
+                    <th scope="row">título do diálogo</th>
+                    <td>a documentação usa h1, e a página já tem o seu h1</td>
+                    <td>recomendação da documentação e a ordem dos títulos da página (apostila, 4.10)</td>
+                    <td>h2 com as classes modal-title h5, que mantêm o tamanho</td>
+                    <td>no h2 com id detalhe-acai-titulo, dentro do modal-header</td>
+                </tr>
+                <tr>
+                    <th scope="row">diálogo (modal)</th>
+                    <td>o aria-labelledby num div sem papel não é aceito pelo validador, que lê o HTML sem rodar o script</td>
+                    <td>erro do validador do W3C sem o role (Passo 4)</td>
+                    <td>role="dialog" escrito na marcação</td>
+                    <td>no div com modal fade e id detalhe-acai</td>
+                </tr>
+                <tr>
+                    <th scope="row">mensagens do formulário</th>
+                    <td>was-validated é só CSS: a mensagem aparece para quem enxerga, mas não está ligada ao campo para o leitor de tela</td>
+                    <td>painel Accessibility no campo do e-mail: aria-describedby com o id da mensagem e a Description com a frase (Passo 9)</td>
+                    <td>um id em cada invalid-feedback e o aria-describedby nos campos obrigatórios</td>
+                    <td>nos input com id nome e email e na caixa com id termos, e nos div invalid-feedback com id nome-erro, email-erro e termos-erro</td>
+                </tr>
+                <tr>
+                    <th scope="row">títulos da página do catálogo</th>
+                    <td>sem o h1 do cabeçalho antigo, a página ficava sem h1, e os h3 dos cartões pulavam um nível</td>
+                    <td>validador do W3C (Passo 3)</td>
+                    <td>o título da página virou h1 com a classe h2, e os títulos dos cartões viraram h2 com card-title h5</td>
+                    <td>no h1 do main e nos h2 com card-title, dentro dos sete li do article</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Pendências declaradas:</strong></p>
+        <ul>
+            <li><strong>O foco depois do envio com erro.</strong> Depois de um envio com erro, o foco continua no botão "Fazer pedido"; levá-lo ao primeiro campo com erro exige um programa meu, e a marcação não faz isso (apostila, 4.14).</li>
+            <li><strong>O diálogo só do açaí.</strong> O diálogo mostra só o açaí; trocar a foto, o preço e a descrição conforme o produto exige programa, e a marcação não resolve (apostila, 4.14).</li>
+            <li><strong>O aria-describedby sempre ligado.</strong> Escrito na marcação, ele vale o tempo todo, mesmo com o campo certo; só um programa que o ponha e o tire conforme a validade resolveria (apostila, 2.10).</li>
+        </ul>
+
+        <h3>2. O registro de decisão</h3>
+
+        <h4>Contexto</h4>
+        <p>A AgroFeira tem cinco páginas autorais e, desde a Atividade 5, um catálogo em Bootstrap. Medi os dois no comparativo.html: o CSS do Bootstrap pesou 35,6 kB contra 6,0 kB do autoral, e o autoral tem 474 linhas de CSS contra 90 do Bootstrap. Na Atividade 6 o Bootstrap ganhou o script: o bootstrap.bundle.min.js pesa cerca de 25 kB transferidos (80,5 kB do arquivo aberto, Passo 6), e sem ele o menu não abre no celular, o diálogo não abre e o formulário deixa de validar (Passo 10). A decisão a tomar é como estilizar a AgroFeira daqui em diante, na aplicação em React do encontro 11 em diante.</p>
+
+        <h4>Opções consideradas</h4>
+        <ul>
+            <li><strong>Folha autoral:</strong> ganha um CSS de 6,0 kB, contra 35,6 kB do Bootstrap, e nenhum programa de terceiros; cobra 474 linhas, contra 90, e as peças por minha conta: o link de pular (14 linhas), a container query (22) e o :has() (4), do comparativo.html.</li>
+            <li><strong>Bootstrap:</strong> ganha o menu retrátil e o diálogo prontos, com o foco preso no diálogo e o Esc funcionando sem eu escrever nada (Passo 5), e 90 linhas de CSS; cobra 35,6 kB de CSS e, com o script, cerca de 25 kB transferidos, e o menu e o diálogo param sem ele (Passo 10); com o React, o script do Bootstrap e o React mexeriam nos mesmos elementos da página.</li>
+            <li><strong>Tailwind:</strong> pelos slides, só traz utilitários, e o componente é a marcação que eu monto; roda no Play CDN com um &lt;script&gt;, só para desenvolvimento, e os tokens do tokens.css valem nas duas abordagens; não instalei nem medi nada dele.</li>
+        </ul>
+
+        <h4>Decisão</h4>
+        <p>Escolho a folha autoral, sobre o tokens.css, para a aplicação em React, e não levo o script do Bootstrap nem a folha dele.</p>
+
+        <h4>Consequências aceitas</h4>
+        <ul>
+            <li>Escrevo e mantenho mais CSS: 474 linhas contra 90 do Bootstrap, e as peças prontas dele (barra, diálogo, formulário) passam a ser minhas.</li>
+            <li>O comportamento que o script do Bootstrap dava, o menu retrátil e o diálogo com o foco preso e o Esc, passa a ser um componente React escrito por mim, e sem programa nada disso funciona (Passo 10).</li>
+            <li>As correções de acessibilidade (seis linhas da tabela) continuam sendo minhas: nomes dos botões, role do diálogo e ligação das mensagens aos campos.</li>
+        </ul>
+
+        <h4>O que me faria mudar de ideia</h4>
+        <p>Se, ao montar o primeiro componente em React, o menu retrátil e o diálogo passarem de 100 linhas, ou se o CSS autoral da aplicação passar de 800 linhas (hoje são 474 em cinco páginas), eu voltaria a considerar a folha do Bootstrap sem o script, de 35,6 kB, que não mexe nos elementos da página.</p>
+
+        <h4>Fontes</h4>
+        <ul>
+            <li>Bootstrap, documentação da versão 5.3: Getting started, Introduction, seção Quick start (https://getbootstrap.com/docs/5.3/getting-started/introduction/).</li>
+            <li>Tailwind CSS, documentação oficial: Installation, Play CDN (https://tailwindcss.com/docs).</li>
+            <li>GRANT, Keith J. CSS in Depth: o tema consultado foi a cascata e a especificidade.</li>
+        </ul>
+
+    </main>
+
+    <footer class="rodape-site">
+        <p>AgroFeira — Produtos da região de Paragominas.</p>
+    </footer>
+
+</body>
+</html>
