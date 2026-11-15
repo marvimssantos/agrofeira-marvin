@@ -1,1 +1,2 @@
 console.log('Forma 1: externa, no arquivo js/aula8.js');
+naoExiste();
