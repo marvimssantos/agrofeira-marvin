@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript na AgroFeira — Marcos Vinicius Morais dos Santos</title>
+    <link rel="stylesheet" href="camadas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="componentes.css">
+    <link rel="stylesheet" href="utilitarios.css">
+</head>
+<body>
+
+    <a href="#conteudo" class="pular">Pular para o conteúdo principal</a>
+
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
+
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="safra.html">Safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+
+        <h2>JavaScript na AgroFeira</h2>
+
+        <p><strong>Aluno:</strong> Marcos Vinicius Morais dos Santos. <strong>Matrícula:</strong> 2022008617.</p>
+
+        <p><strong>Repositório:</strong> https://github.com/marvimssantos/agrofeira-marvin</p>
+
+        <p><strong>Site:</strong> https://marvimssantos.github.io/agrofeira-marvin/aula8.html</p>
+
+        <p>As três formas de levar JavaScript a uma página são: a externa, num arquivo js ligado pela tag script (Forma 1); a interna, entre as tags script, na própria página (Forma 2); e a em linha, dentro de uma tag, como o onclick do botão abaixo (Forma 3).</p>
+
+        <script src="js/aula8.js"></script>
+        <script>console.log('Forma 2: interna, entre as tags script');</script>
+        <button type="button" onclick="alert('Forma 3: em linha, dentro da tag')">Forma 3</button>
+
+        <h2>Meus projetos</h2>
+
+        <ul>
+            <li>O tabuleiro do tutorial (Parte B), no CodeSandbox: <a href="COLE-AQUI-O-LINK-DO-TABULEIRO">COLE-AQUI-O-LINK-DO-TABULEIRO</a></li>
+            <li>A AgroFeira em componentes (Parte C), no CodeSandbox: <a href="COLE-AQUI-O-LINK-DA-AGROFEIRA">COLE-AQUI-O-LINK-DA-AGROFEIRA</a></li>
+        </ul>
+
+        <h2>Mensagens que encontrei</h2>
+
+        <ul>
+            <li>Passo 6 (a chamada de naoExiste, no aula8.js): <code>Uncaught ReferenceError: naoExiste is not defined</code></li>
+            <li>Passo 10 (dois botões lado a lado, no App.js): <code>Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment &lt;&gt;...&lt;/&gt;?</code></li>
+            <li>Passo 14 (a prop e o estado com o mesmo nome, no App.js): <code>Identifier 'value' has already been declared</code></li>
+        </ul>
+
+        <h2>O que eu aprendi</h2>
+
+        <h3>1. As três formas</h3>
+        <p>Eu usaria a Forma 1, o arquivo externo, como o js/aula8.js. Um programa de 200 linhas que várias páginas usariam ficaria copiado em cada página se fosse interno (Forma 2), e a Forma 3 só serve para uma linha dentro de uma tag, não para um programa. É o que já faço com o CSS: o tokens.css e os outros arquivos ficam em um lugar só, as cinco páginas ligam o mesmo arquivo e uma correção vale para todas. Além disso, o navegador guarda o arquivo externo e não precisa baixá-lo de novo em cada página.</p>
+
+        <h3>2. Repetição</h3>
+        <p>No catalogo.html, o que se repete é o cartão de produto: o li de classe cartao-produto, com a foto, o nome, o produtor, o preço e o botão Adicionar, que aparece sete vezes na grade e mais duas na lista Mais pedidos. O componente equivalente seria um Produto. As props seriam o nome (como Açaí médio), o produtor, o preço e o src e o alt da foto. O que muda em cada cartão entra por props, e a estrutura (o article, a imagem, o h3, os dois parágrafos e o botão) fica escrita uma vez só, no lugar dos nove blocos de HTML.</p>
+
+        <h3>3. Props e estado</h3>
+        <p>No Produto do Passo 17, o nome chega por props (por exemplo, Açaí médio) e o rótulo do botão fica no estado, que começa em Adicionar e passa a No carrinho no clique. A prop vem de fora, do Catalogo, e o Produto só a lê; o estado é do próprio Produto, que o muda com setRotulo. Cliquei no Açaí médio e na Banana-prata, e a Farinha d'água continuou com Adicionar, porque cada Produto chama o useState por conta própria e guarda o seu próprio rotulo. O setRotulo de um produto só muda o rótulo desse produto.</p>
+
+        <h3>4. A decisão de estilo</h3>
+        <p>Não, a minha decisão não muda: continuo com a folha autoral que registrei no decisao.html. O styles.css do CodeSandbox, com as regras .square e .board-row que vi no Passo 9, é uma folha escrita à mão como a minha, e o React só monta a página com componentes: quem estiliza continua sendo o CSS, ligado pelo className. O script do Bootstrap e o React mexeriam nos mesmos elementos da página, que era um dos motivos de eu não levar o script. O que me faria mudar de ideia continua sendo o do decisao.html: o CSS autoral passar de 800 linhas, ou o menu e o diálogo passarem de 100 linhas.</p>
+
+    </main>
+
+    <footer class="rodape-site">
+        <p>AgroFeira — Produtos da região de Paragominas.</p>
+    </footer>
+
+</body>
+</html>
